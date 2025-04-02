@@ -86,9 +86,7 @@ function playGame(){
         console.log(`Player Score: ${humanScore} | Computer Score: ${computerScore} `);
     }
 
-    for (let i = 0; i < 5; i++){
-        playRound(getHumanChoice(), getComputerChoice());
-    }
+    
     
 }
 
