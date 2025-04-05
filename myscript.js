@@ -1,4 +1,4 @@
-function getComputerChoice(){
+function getComputerChoice() {
     const randomNum = Math.floor(Math.random() * 3);
     let choice;
     switch (randomNum) {
@@ -15,18 +15,18 @@ function getComputerChoice(){
     return choice;
 }
 
-function getHumanChoice(){
+function getHumanChoice() {
     let choice = prompt("Choose: rock, paper or scissors?")
     return choice;
 }
 
-function playGame(){
+function playGame() {
     let humanScore = 0;
     let computerScore = 0;
-    
-    function playRound(humanChoice, computerChoice){
+
+    function playRound(humanChoice, computerChoice) {
         let result;
-        if (humanChoice.toLowerCase() === 'rock'){
+        if (humanChoice.toLowerCase() === 'rock') {
             switch (computerChoice) {
                 case 'scissors':
                     result = 'win'
@@ -39,7 +39,7 @@ function playGame(){
                     break;
             }
         }
-        else if (humanChoice.toLowerCase() === 'paper'){
+        else if (humanChoice.toLowerCase() === 'paper') {
             switch (computerChoice) {
                 case 'rock':
                     result = 'win'
@@ -52,7 +52,7 @@ function playGame(){
                     break;
             }
         }
-        else if (humanChoice.toLowerCase() === 'scissors'){
+        else if (humanChoice.toLowerCase() === 'scissors') {
             switch (computerChoice) {
                 case 'paper':
                     result = 'win'
@@ -65,18 +65,18 @@ function playGame(){
                     break;
             }
         }
-        
+
         let announcement;
         switch (result) {
             case 'win':
                 announcement = `You win! ${humanChoice} beats ${computerChoice}`;
                 humanScore++;
                 break;
-        
+
             case 'draw':
                 announcement = 'It\'s a draw'
                 break;
-    
+
             case 'lose':
                 announcement = `You lose! ${computerChoice} beats ${humanChoice}`;
                 computerScore++;
@@ -86,8 +86,12 @@ function playGame(){
         console.log(`Player Score: ${humanScore} | Computer Score: ${computerScore} `);
     }
 
-    
-    
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach((button) => {
+        button.addEventListener('click', (event) => {
+            playRound(event.target.textContent, getComputerChoice());
+        });
+    });
 }
 
 playGame();
