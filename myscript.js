@@ -15,11 +15,6 @@ function getComputerChoice() {
     return choice;
 }
 
-// function getHumanChoice() {
-//     let choice = prompt("Choose: rock, paper or scissors?")
-//     return choice;
-// }
-
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
@@ -88,6 +83,13 @@ function playGame() {
 
         const scoreContainer = document.querySelector('#score')
         scoreContainer.textContent = `Player Score: ${humanScore} | Computer Score: ${computerScore} `;
+
+        if (humanScore == 5 || computerScore == 5){
+            const para = document.createElement('p');
+            para.textContent = `The winner is ${humanScore == 5? 'Player!' : 'Computer!'}`;
+            scoreContainer.append(para);
+        }
+
     }
 
     const buttons = document.querySelectorAll('button');
