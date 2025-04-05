@@ -15,10 +15,10 @@ function getComputerChoice() {
     return choice;
 }
 
-function getHumanChoice() {
-    let choice = prompt("Choose: rock, paper or scissors?")
-    return choice;
-}
+// function getHumanChoice() {
+//     let choice = prompt("Choose: rock, paper or scissors?")
+//     return choice;
+// }
 
 function playGame() {
     let humanScore = 0;
@@ -82,8 +82,12 @@ function playGame() {
                 computerScore++;
                 break;
         }
-        console.log(announcement);
-        console.log(`Player Score: ${humanScore} | Computer Score: ${computerScore} `);
+
+        const resultContainer = document.querySelector('#result');
+        resultContainer.textContent = announcement;
+
+        const scoreContainer = document.querySelector('#score')
+        scoreContainer.textContent = `Player Score: ${humanScore} | Computer Score: ${computerScore} `;
     }
 
     const buttons = document.querySelectorAll('button');
