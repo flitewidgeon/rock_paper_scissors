@@ -78,6 +78,7 @@ function playGame() {
                 break;
         }
 
+        
         const resultContainer = document.querySelector('#result');
         resultContainer.textContent = announcement;
 
