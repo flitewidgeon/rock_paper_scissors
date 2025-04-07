@@ -89,6 +89,26 @@ function playGame() {
             const para = document.createElement('p');
             para.textContent = `The winner is ${humanScore == 5? 'Player!' : 'Computer!'}`;
             scoreContainer.append(para);
+
+            // Disable the buttons
+            buttons.forEach((button) => button.disabled = true);
+
+            // Create a reset button for game
+            const button = document.createElement('button');
+            button.textContent = 'Play Again';
+
+            button.addEventListener('click', () => {
+                // Reset the score
+                humanScore = 0;
+                computerScore = 0;
+                // Clear the output
+                resultContainer.textContent = '';
+                para.textContent = ''
+                scoreContainer.textContent = '';
+                // Enable the buttons
+                buttons.forEach((button) => button.disabled = false);
+            });
+            scoreContainer.appendChild(button);
         }
 
     }
